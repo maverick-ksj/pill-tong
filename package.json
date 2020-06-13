@@ -1,0 +1,16 @@
+{
+  "name": "A",
+  "version": "0.1.0",
+  "description": "'A' is a reverse proxy server provides HTTP request filtering layer",
+  "main": "index.js",
+  "repository": "https://github.com/maverick-ksj/A.git",
+  "author": "shj <kan02134@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "http-proxy": "^1.18.1",
+    "koa": "^2.12.0",
+    "koa-proxies": "^0.11.0",
+    "lodash": "^4.17.15",
+    "yaml": "^1.10.0"
+  }
+}

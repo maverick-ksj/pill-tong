@@ -1,0 +1,3 @@
+port:
+  proxy: 8080
+  target: 3000
