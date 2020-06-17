@@ -3,97 +3,64 @@ const https = require('https');
 
 const yaml = require('yaml');
 const _ = require('lodash');
+const queryStringParser = require('query-string').parse;
 
-// const proxy = require('koa-proxies');
+const xss = require('xss');
 
-const app = new (require('koa'))();
 const proxy = new require('http-proxy').createProxyServer();
 
 class A {
   constructor() {
+    // parse environments
     this.env = yaml.parse(fs.readFileSync('./aa.yml').toString());
+
+    // create ssl server
+    https.createServer({
+      key: fs.readFileSync(this.sslCert.key),
+      cert: fs.readFileSync(this.sslCert.cert),
+    }, async (req, res) => {
+      const queryString = await new Promise((resolve) => {
+        resolve(queryStringParser(req.url.match(/^\/[\?]?(.*)/)[1]));
+      });
+
+      const body = await new Promise((resolve) => {
+        let cs = '';
+        req.on('data', (c) => cs += c);
+        req.on('end', () => resolve(queryStringParser(cs)));
+      });
+
+      if (
+        !(
+          xss(JSON.stringify(queryString)) === JSON.stringify(queryString) &&
+          xss(JSON.stringify(body)) === JSON.stringify(body)
+        )
+      ) {
+        res.end('failed');
+      } else {
+        proxy.web(req, res, {
+          target: {
+            host: this.target.host,
+            port: this.target.port,
+          },
+        });
+      }
+    }).listen(this.proxy.port);
+
+    // init msg
+    console.log(`proxy:${this.proxy.port} ---> target:${this.target.port}`);
   }
 
-  run() {
-    /*
-    https.createServer({
-      key: fs.readFileSync('./ssl/private.pem'),
-      cert: fs.readFileSync('./ssl/public.pem'),
-    }, (req, res) => {
-      proxy.web(req, res, {
-        target: {
-          host: 'localhost',
-          port: this.port.target,
-        },
-      });
-    }).listen(this.port.proxy);
-    */
-
-    app.use(async (ctx) => {
-      proxy.web(ctx.req, ctx.res, {
-        target: {
-          host: 'localhost',
-          port: this.port.target,
-        },
-      });
-    }).listen(this.port.proxy);
-
-    /*
-    app.use(proxy('/', {
-      target: {
-        host: 'localhost',
-        port: this.port.target,
-      },
-      events: {
-        proxyReq(proxyReq, req, res) {
-          // console.log(req);
-          console.log('!');
-        },
-      },
-    }));
-
-    app.listen(8080);
-    */
-
-    /*
-    https.createServer({
-      key: fs.readFileSync('./ssl/private.pem'),
-      cert: fs.readFileSync('./ssl/public.pem'),
-    }, app.callback()).listen('8080');
-
-    app.use(async ({ req, res }) => {
-      proxy.web(req, res, {
-        target: {
-          host: 'localhost',
-          port: this.port.target,
-        },
-      });
-
-      console.log(ctx);
-      ctx.body = 'test';
-    });
-    */
-
-    /*
-    https.createServer({
-      key: fs.readFileSync('./ssl/private.pem'),
-      cert: fs.readFileSync('./ssl/public.pem'),
-    }, (req, res) => {
-      proxy.web(req, res, {
-        target: {
-          host: 'localhost',
-          port: this.port.target,
-        },
-      });
-    }).listen(this.port.proxy);
-    */
-
-    console.log(`proxy:${this.port.proxy} ---> target:${this.port.target}`);
+  get target() {
+    return this.env.target;
   }
 
-  get port() {
-    return this.env.port;
+  get proxy() {
+    return this.env.proxy;
+  }
+
+  get sslCert() {
+    return this.env.cert;
   }
 }
 
-new A().run();
+new A();
