@@ -1,3 +1,10 @@
-port:
-  proxy: 8080
-  target: 3000
+target:
+  host: 'localhost'
+  port: 3000
+
+proxy:
+  port: 8080
+
+cert:
+  key: './ssl/private.pem'
+  cert: './ssl/public.pem'
