@@ -1,0 +1,19 @@
+{
+  "name": "A",
+  "version": "0.1.0",
+  "description": "A is a reverse proxy server written in NodeJS, and it provides HTTP request filtering layer using customizable middlewares.",
+  "main": "index.js",
+  "repository": "https://github.com/maverick-ksj/A.git",
+  "author": "shj <kan02134@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
