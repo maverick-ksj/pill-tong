@@ -17,6 +17,7 @@
     "mocha": "^8.0.1"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "yaml": "^1.10.0"
   }
 }
