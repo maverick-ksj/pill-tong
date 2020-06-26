@@ -1,10 +1,10 @@
 # Pill Tong
 
-![[GitHub release (latest SemVer)](https://github.com/maverick-ksj/pill-tong/releases)](https://img.shields.io/github/v/release/maverick-ksj/pill-tong)
-![[GitHub tag (latest by date)](https://github.com/maverick-ksj/pill-tong/tags)](https://img.shields.io/github/v/tag/maverick-ksj/pill-tong)
-![[LICENSE](https://github.com/maverick-ksj/pill-tong/blob/master/LICENSE)](https://img.shields.io/github/license/maverick-ksj/pill-tong)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/maverick-ksj/pill-tong)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/maverick-ksj/pill-tong)
+![LICENSE](https://img.shields.io/github/license/maverick-ksj/pill-tong)
 
-![[GitHub Workflow Build Status](https://www.npmjs.com/package/pill-tong)](https://img.shields.io/github/workflow/status/maverick-ksj/pill-tong/npm-publish)
+![GitHub Workflow Build Status](https://img.shields.io/github/workflow/status/maverick-ksj/pill-tong/npm-publish)
 
 English | Korean
 
