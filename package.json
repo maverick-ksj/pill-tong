@@ -11,6 +11,7 @@
     "pilltong": "./bin/index.js"
   },
   "scripts": {
+    "pilltong": "pilltong",
     "test": "mocha"
   },
   "devDependencies": {

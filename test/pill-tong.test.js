@@ -7,7 +7,7 @@ describe('lib/secure-proxy-server', () => {
   describe('https #createSecureProxyServer', () => {
     it('creation', () => {
       _.forEach([
-        'createSecureProxyServer',
+        'createSecureProxyServer', // creation methods
         'createProxyServer',
         'createServer',
         'createProxy',
@@ -17,5 +17,16 @@ describe('lib/secure-proxy-server', () => {
         assert.equal(typeof proxy[name](), 'object');
       });
     });
+
+    it('creation with conf option', () => {
+      try {
+        const p = proxy.create({
+          conf: './pill-tong.yml', // default conf file
+        });
+
+        assert.equal(typeof p, 'object');
+        assert.notEqual(p.env, undefined);
+      } catch { }
+    })
   });
 });
