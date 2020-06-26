@@ -1,16 +1,20 @@
-# A
+# Pill Tong
 
-[release]
+![[GitHub release (latest SemVer)](https://github.com/maverick-ksj/pill-tong/releases)](https://img.shields.io/github/v/release/maverick-ksj/pill-tong)
+![[GitHub tag (latest by date)](https://github.com/maverick-ksj/pill-tong/tags)](https://img.shields.io/github/v/tag/maverick-ksj/pill-tong)
+![[LICENSE](https://github.com/maverick-ksj/pill-tong/blob/master/LICENSE)](https://img.shields.io/github/license/maverick-ksj/pill-tong)
 
-[license]
-
-[build]
-
-[GitHub Actions]
+![[GitHub Workflow Build Status](https://www.npmjs.com/package/pill-tong)](https://img.shields.io/github/workflow/status/maverick-ksj/pill-tong/npm-publish)
 
 English | Korean
 
 ## Introduction
+
+<p align="center">
+  <img src="./doc/favicon/favicon.png" width="320" alt="favicon">
+</p>
+
+**Pill Tong** is a reverse proxy server written in NodeJS, and it provides HTTP request filtering layer using customizable middlewares.
 
 <p align="center">
     <img src="https://i.imgur.com/acJ5r7b.png" width="640" alt="base concept">
@@ -18,17 +22,16 @@ English | Korean
     Base Concept
 </p>
 
-**A** is a reverse proxy server written in NodeJS, and it provides HTTP request filtering layer using customizable middlewares.
+Its concept is easy to understand; (1) first of all, you just install [pill-tong](https://www.npmjs.com/package/pill-tong) npm module (2) set middleware filters (3) and then, run `pilltong` with options. Currently some modules exists as follows;
 
-Its concept is easy to understand; (1) first of all, you just download `.dockerfile` and initialized them (2) set middleware filters (3) and then, run `A` with options. Currently some modules exists as follows;
-
-* (middleware module name)
+* [pillting-xss]
+* 
 
 So, you can compose a web server that given filtered HTTP requests.
 
 ## Installation
 
-```dockerfile
+```sh
 
 ```
 
@@ -47,7 +50,3 @@ So, you can compose a web server that given filtered HTTP requests.
 ## License
 
 MIT
-
-## Contribution guide
-
-
