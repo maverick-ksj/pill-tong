@@ -2,4 +2,4 @@
  * vexations
  */
 
-module.exports = require('./lib/secure-proxy-server');
+module.exports = require('./lib/pill-tong');
