@@ -15,10 +15,15 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "^8.0.1"
+    "mocha": "^8.0.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
   },
   "dependencies": {
+    "http-proxy": "^1.18.1",
     "lodash": "^4.17.15",
+    "query-string": "^6.13.1",
+    "xss": "^1.0.7",
     "yaml": "^1.10.0"
   }
 }
