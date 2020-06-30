@@ -12,12 +12,15 @@
   },
   "scripts": {
     "pilltong": "pilltong",
-    "test": "mocha"
+    "test": "mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "mocha": "^8.0.1",
     "request": "^2.88.2",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "snyk": "^1.352.1"
   },
   "dependencies": {
     "http-proxy": "^1.18.1",
@@ -25,5 +28,6 @@
     "query-string": "^6.13.1",
     "xss": "^1.0.7",
     "yaml": "^1.10.0"
-  }
+  },
+  "snyk": true
 }
