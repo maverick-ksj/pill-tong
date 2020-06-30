@@ -1,0 +1,13 @@
+client:
+  host: 'http://www.google.com'
+  port: 80
+
+proxy:
+  port: 8080
+
+filters:
+  - '../../example/xss-filter'
+
+ssl:
+  key: './test/cert/private.pem'
+  cert: './test/cert/public.pem'
