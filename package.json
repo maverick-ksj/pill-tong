@@ -12,13 +12,17 @@
   },
   "scripts": {
     "pilltong": "pilltong",
-    "test": "mocha"
+    "test": "mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "mocha": "^8.0.1"
   },
   "dependencies": {
     "lodash": "^4.17.15",
-    "yaml": "^1.10.0"
-  }
+    "yaml": "^1.10.0",
+    "snyk": "^1.352.1"
+  },
+  "snyk": true
 }
