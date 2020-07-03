@@ -13,8 +13,11 @@ const _ = require('lodash');
  * pilltong --conf ./pill-tong.yml
  */
 const optionParser = _.flowRight(
-  _.partial(_.reduce, _, (r, v) => _.set(r, v[0].replace(/-/g, ''), v[1]), { }),
-  _.partial(_.chunk, _, 2),
+  _.partial(_.reduce, _, (r, [k, v]) => _.set(r, k, v || true), { }),
+  _.partial(_.map, _, (v) => v.split(' ')),
+  _.partial(_.slice, _, 1),
+  _.partial(_.split, _, /[\s]*--[\s]*/),
+  _.partial(_.join, _, ' '),
 );
 
 // create the pilltong module

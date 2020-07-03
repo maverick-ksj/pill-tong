@@ -31,14 +31,22 @@ npm install pill-tong -g
 ### 2\. pill-tong 서비스 생성
 
 ```sh
-# create a new pill-tong Service
-pilltong --create my-proxy-server
-
-# change into the created directory
-cd my-proxy-server
+pilltong --create
 ```
 
-### 3\. pill-tong 프록시 서버 시작
+### 3\. [pill-tong 설정 파일](#pill-tong-설정-파일) 구성
+
+```sh
+# 설정 파일은 기본적으로 pill-tong.yml 로 생성됩니다
+vim pill-tong.yml
+```
+
+### 4\. **방화벽 설정**
+
+* 사용자의 실제 서버 포트: `private`
+* pill-tong 프록시 서버 포트: `public`
+
+### 5\. pill-tong 프록시 서버 시작
 
 ```sh
 pilltong
@@ -47,9 +55,35 @@ pilltong
 ## 옵션
 
 ```sh
---create <path> # 서비스 생성 (argument required)
+--create # 서비스 생성
 --conf <path> # 설정 파일 위치 지정 (default: ./pill-tong.yml)
---noHello <boolean> # 시작 메시지 출력 여부 (default: false)
+--noHello # 시작 메시지 출력 여부 (default: false)
+```
+
+## Pill-Tong 설정 파일
+
+```yml
+# 사용자 서버 설정
+client:
+  host: 'localhost' # 사용자 서버 주소
+  port: 3000 # 사용자 서버 포트 (private port)
+
+# pill-tong 프록시 서버 설정
+proxy:
+  port: 80 # 프록시 서버 포트 (public port)
+
+# 필터 목록
+filters:
+  - 'xss-filter' # npm을 통해 설치된 필터
+  - './filter/my-filter' # 사용자 정의 필터
+
+# ssl 설정 (비활성화)
+ssl: false
+
+# ssl 설정 (활성화)
+# ssl:
+#     key: './cert/private.pem'
+#     cert: './cert/public.pem'
 ```
 
 ## 라이센스

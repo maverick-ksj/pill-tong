@@ -1,0 +1,22 @@
+# client configuration
+client:
+  host: 'localhost' # client server host
+  port: 3000 # client server port (private port)
+
+# pill-tong proxy server configuration
+proxy:
+  port: 80 # proxy server port (public port)
+
+# filter lists
+# 
+# filters:
+#   - 'xss-filter'
+#   - './filter/my-filter'
+
+# ssl configuration
+# 
+# ssl: false
+# 
+# ssl:
+#     key: './cert/private.pem'
+#     cert: './cert/public.pem'
