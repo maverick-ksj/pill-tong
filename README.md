@@ -31,14 +31,22 @@ npm install pill-tong -g
 ### 2\. Create a Service
 
 ```sh
-# create a new pill-tong Service
-pilltong --create my-proxy-server
-
-# change into the created directory
-cd my-proxy-server
+pilltong --create
 ```
 
-### 3\. Starts the pill-tong Proxy Server
+### 3\. Set-up the [pill-tong configuration file](#pill-tong-configuration)
+
+```sh
+# pill-tong.yml: default configuration file name
+vim pill-tong.yml
+```
+
+### 4\. **Configure the Firewall rules**
+
+* your real server port: `private`
+* pill-tong proxy server port: `public`
+
+### 5\. Starts the pill-tong Proxy Server
 
 ```sh
 pilltong
@@ -47,9 +55,35 @@ pilltong
 ## Options
 
 ```sh
---create <path> # create a service (argument required)
+--create # create a service
 --conf <path> # set configuration file path (default: ./pill-tong.yml)
---noHello <boolean> # hello message print or not (default: false)
+--noHello # hello message print or not (default: false)
+```
+
+## Pill-Tong Configuration
+
+```yml
+# client configuration
+client:
+  host: 'localhost' # client server host
+  port: 3000 # client server port (private port)
+
+# pill-tong proxy server configuration
+proxy:
+  port: 80 # proxy server port (public port)
+
+# filter lists
+filters:
+  - 'xss-filter' # filter installing via npm
+  - './filter/my-filter' # user define filter
+
+# ssl configuration (disable)
+ssl: false
+
+# ssl configuration (enable)
+# ssl:
+#     key: './cert/private.pem'
+#     cert: './cert/public.pem'
 ```
 
 ## License
