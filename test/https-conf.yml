@@ -6,7 +6,7 @@ proxy:
   port: 8080
 
 filters:
-  - '../../example/xss-filter'
+  - './example/xss-filter'
 
 ssl:
   key: './test/cert/private.pem'
