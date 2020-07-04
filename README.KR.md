@@ -89,3 +89,31 @@ ssl: false
 ## 라이센스
 
 Pill-Tong은 [MIT License](./LICENSE)를 따릅니다.
+
+## 발표자료
+
+![slide 1](./doc/presentation/pt/1.PNG)
+
+![slide 2](./doc/presentation/pt/2.PNG)
+
+![slide 3](./doc/presentation/pt/3.PNG)
+
+![slide 4](./doc/presentation/pt/4.PNG)
+
+![slide 5](./doc/presentation/pt/5.PNG)
+
+![slide 6](./doc/presentation/pt/6.PNG)
+
+![slide 7](./doc/presentation/pt/7.PNG)
+
+![slide 8](./doc/presentation/pt/8.PNG)
+
+![slide 9](./doc/presentation/pt/9.PNG)
+
+![slide 10](./doc/presentation/pt/10.PNG)
+
+![slide 11](./doc/presentation/pt/11.PNG)
+
+![slide 12](./doc/presentation/pt/12.PNG)
+
+![slide 13](./doc/presentation/pt/13.PNG)
