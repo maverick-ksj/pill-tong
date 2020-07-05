@@ -1,6 +1,6 @@
 {
   "name": "pill-tong",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Pill-tong is a reverse proxy server written in NodeJS, and it provides HTTP request filtering layer using customizable middlewares.",
   "repository": "https://github.com/maverick-ksj/pill-tong.git",
   "author": "maverick-ksj <kan02134@gmail.com>",
